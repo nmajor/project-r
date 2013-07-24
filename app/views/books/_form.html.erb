@@ -1,0 +1,12 @@
+<%= form_for @book do |b| %>
+  <table>
+  <tr><td><%= b.label :title %></td><td><%= b.text_field :title %></td></tr>
+  <tr><td><%= b.label :subtitle %></td><td><%= b.text_field :subtitle %></td></tr>
+  <tr><td><%= b.label :blurb %></td><td><%= b.text_area :blurb, :size => '50x10'  %></td></tr>
+  <tr><td><%= b.label:excerpt %></td><td><%= b.text_area :excerpt, :size => '50x10' %></td></tr>
+  <tr><td><%= b.label :buy_link, "Link to Buy" %></td><td><%= b.text_field :buy_link %></td></tr>
+  <tr><td><% if current_page? action: 'edit' %>
+        <%= button_to "Delete Book", @book, :method => :delete %>
+  <% end %></td><td><%= b.submit %></td></tr>
+  </table>
+<% end %>

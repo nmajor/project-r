@@ -1,0 +1,8 @@
+<h1>Book List</h1>
+<%= link_to "Add New", new_book_path %><br /><br />
+<% for book in @books %>
+  <div id="book_<%= book.id %>">
+    <div class="book_title"><%= link_to book.title, book_path(book) %> <%= link_to "edit", edit_book_path(book) %></div>
+    <div class="book_subtitle"><%= book.subtitle %></div>
+  </div>
+<% end %>
