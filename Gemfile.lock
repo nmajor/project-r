@@ -26,7 +26,6 @@ GEM
       activerecord (>= 3.2.9)
       activesupport (>= 3.2.9)
       mysql (>= 2.9.0)
-    activerecord-reputation-system (2.0.2)
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -120,7 +119,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-mysql-adapter
-  activerecord-reputation-system
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails

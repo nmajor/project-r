@@ -12,7 +12,7 @@
 
 <div id="user_nav">
   <% if user_signed_in? %>
-    Signed in as <%= link_to current_user.username, user_show_path(current_user) %>(W:<%= current_user.reputation_for(:author_score).to_i %>). Not you?
+    Signed in as <%= link_to current_user.username, user_show_path(current_user) %>(W:10 %>). Not you?
     <%= link_to "Logout", destroy_user_session_path %>
   <% else %>
      <%= link_to "Login", new_user_session_path %> or <%= link_to "Register", new_user_registration_path %>
