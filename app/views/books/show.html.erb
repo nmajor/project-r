@@ -5,6 +5,9 @@
   <tr><td>Blurb</td><td><%= @book.blurb  %></td></tr>
   <tr><td>Excerpt</td><td><%= @book.excerpt %></td></tr>
   <tr><td>Link to Buy</td><td><%= link_to @book.buy_link, @book.buy_link %></td></tr>
-  <tr><td></td><td><%= link_to "Edit", edit_book_path(@book) %></td></tr>
+  <tr><td></td><td><% if current_user == @book.user %>    
+    <%= link_to "Edit", edit_book_path(@book) %>
+    <% end %></td></tr>
+  
   </table>
 

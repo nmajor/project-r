@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
+
   def index
     @books = Book.all
   end
@@ -12,7 +14,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create params[:book]
+    user = current_user
+    book = Book.create params[:book]
+    user.books << book
     redirect_to books_path
   end
 

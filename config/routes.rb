@@ -1,5 +1,20 @@
 R::Application.routes.draw do
+
+  devise_for :users, :path_names => {
+    :sign_in => 'login',
+    :sign_out => 'logout',
+    :sign_up => 'register'
+    } 
+  devise_scope :user do
+    get "users/logout", to: "devise/sessions#destroy"
+#    get "users/log_out", to: "devise/sessions#destroy"
+#    get "users/log_in", to: "devise/sessions#new"
+  end
+  get "users/:id", :as => :user_show, to: "users#show"
+
+  root :to => "books#index"
   resources :books
+  get "books/edit"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
