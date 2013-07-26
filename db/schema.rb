@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724044941) do
+ActiveRecord::Schema.define(:version => 20130726221213) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -19,11 +19,19 @@ ActiveRecord::Schema.define(:version => 20130724044941) do
     t.text     "blurb"
     t.text     "excerpt"
     t.text     "buy_link"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
+    t.integer  "cached_votes_total", :default => 0
+    t.integer  "cached_votes_score", :default => 0
+    t.integer  "cached_votes_up",    :default => 0
+    t.integer  "cached_votes_down",  :default => 0
   end
 
+  add_index "books", ["cached_votes_down"], :name => "index_books_on_cached_votes_down"
+  add_index "books", ["cached_votes_score"], :name => "index_books_on_cached_votes_score"
+  add_index "books", ["cached_votes_total"], :name => "index_books_on_cached_votes_total"
+  add_index "books", ["cached_votes_up"], :name => "index_books_on_cached_votes_up"
   add_index "books", ["user_id"], :name => "index_books_on_user_id"
 
   create_table "users", :force => true do |t|
@@ -48,5 +56,21 @@ ActiveRecord::Schema.define(:version => 20130724044941) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], :name => "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], :name => "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

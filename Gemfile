@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'mysql2'
 gem 'activerecord-mysql-adapter'
 gem 'devise'
+gem 'acts_as_votable', '~> 0.5.0'
 
 
 # Gems used only for assets and not required

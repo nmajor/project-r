@@ -47,3 +47,6 @@ a{
 .book_item_author{
   font-size: 16px;
 }
+.voted{
+  color: #969696;
+}
