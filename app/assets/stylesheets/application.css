@@ -11,3 +11,39 @@
  *= require_self
  *= require_tree .
  */
+
+body{
+  font-family: Arial,Helvetica,sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #0A0C8F;
+  hover: {
+    color: #7340F5;
+  }
+}  
+
+.book_item{
+  background: #E8E8E8;
+  margin-bottom: 3px;
+  padding: 5px;
+  width: 500px;
+}
+.book_item_sidebar{
+  display: inline-block; 
+  text-align: center;
+  margin-right: 5px;
+}
+.book_item_content{
+  display: inline-block;
+}
+.book_item_title{
+  font-size: 24px; 
+}
+.book_item_subtitle{
+  font-size: 14px;
+  font-style: italic;
+}
+.book_item_author{
+  font-size: 16px;
+}

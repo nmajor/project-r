@@ -13,7 +13,9 @@ R::Application.routes.draw do
   get "users/:id", :as => :user_show, to: "users#show"
 
   root :to => "books#index"
-  resources :books
+  resources :books do
+    member { post :vote }
+  end
   get "books/edit"
   # The priority is based upon order of creation:
   # first created -> highest priority.

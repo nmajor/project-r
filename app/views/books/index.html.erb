@@ -2,6 +2,4 @@
 <% if user_signed_in? %>
   <%= link_to "Add New", new_book_path %><br /><br />
 <% end %>
-<% for book in @books %>
-  <%= render "shared/book_item", :book => book %>
-<% end %>
+  <%= render "shared/book_item", :books => @books %>

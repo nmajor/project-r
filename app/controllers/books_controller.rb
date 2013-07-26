@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    @books = Book.all
+    #@books = Book.all
+    @books = Book.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
   def show
@@ -37,4 +38,12 @@ class BooksController < ApplicationController
     Book.destroy params[:id]
     redirect_to books_path
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @book = Book.find params[:id]
+    @book.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "you just " + params[:type] + "voted " + @book.title
+  end
+
 end

@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'mysql2'
 gem 'activerecord-mysql-adapter'
 gem 'devise'
+gem 'activerecord-reputation-system', :require => 'reputation_system'
 
 
 # Gems used only for assets and not required
