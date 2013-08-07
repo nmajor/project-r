@@ -2,4 +2,11 @@
 <% if user_signed_in? %>
   <%= link_to "Add New", new_book_path %><br /><br />
 <% end %>
-  <%= render "shared/book_item", :books => @books %>
+<div class="row-fluid">  
+  <div class="span6">
+    <%= render "shared/book_item", :books => @books %>
+  </div>
+  <div class="span6 well">
+    <%= holder_tag '370x540' %>
+  </div>
+</div>

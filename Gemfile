@@ -10,7 +10,11 @@ gem 'mysql2'
 gem 'activerecord-mysql-adapter'
 gem 'devise'
 gem 'acts_as_votable', '~> 0.5.0'
-
+gem 'acts_as_commentable_with_threading'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem "holder_rails"
 
 # Gems used only for assets and not required
 # in production environments by default.

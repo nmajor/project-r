@@ -15,6 +15,10 @@ R::Application.routes.draw do
   root :to => "books#index"
   resources :books do
     member { post :vote }
+    member { post :comment }
+    member { post :review }
+    member { get :excerpt }
+    member { post :favorite }
   end
   get "books/edit"
   # The priority is based upon order of creation:

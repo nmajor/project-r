@@ -1,3 +1,40 @@
 // Place all the styles related to the Book controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#show_book_blurb{
+  height: 100px;
+  overflow: auto;
+  margin-bottom: 15px;
+}
+#show_book_excerpt{
+  overflow: auto;
+  margin-bottom: 15px;
+}
+.comment{
+  background: #E8E8E8;
+  padding: 5px;
+  margin: 10px 0;
+}
+#add_new_comment{
+  background: #E8E8E8;
+  padding: 10px;
+}
+.nested_comments{
+  margin-left: 50px;
+}
+#show_book_subtitle{
+  margin-bottom: 15px;
+  font-style: italic;
+}
+#book_excerpt_footer{
+  margin: 30px 0px;
+}
+.review_vote{
+  display: inline-block;
+}
+.review_sidebar{
+  display: inline-block;
+}
+.review_content{
+  display: inline-block;
+}
